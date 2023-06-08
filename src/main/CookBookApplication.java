@@ -1,6 +1,11 @@
 package main;
 
-import domain.*;
+import domain.CookBook;
+import domain.Ingredient;
+import domain.Rating;
+import domain.Recipe;
+import domain.SimpleIngredient;
+import domain.User;
 import exceptions.RecipeExistsException;
 import exceptions.UserExistsException;
 import service.CookBookReport;

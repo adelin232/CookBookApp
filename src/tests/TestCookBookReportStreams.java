@@ -4,7 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import domain.*;
+import domain.CookBook;
+import domain.Ingredient;
+import domain.Recipe;
+import domain.SimpleIngredient;
+import domain.User;
 import exceptions.CookBookException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
