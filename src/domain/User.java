@@ -27,8 +27,16 @@ public class User {
         favoriteRecipes.add(recipe);
     }
 
+    public void removeFavoriteRecipe(final Recipe recipe) {
+        favoriteRecipes.remove(recipe);
+    }
+
     public void addIngredient(final Ingredient ingredient) {
         shoppingList.add(ingredient);
+    }
+
+    public void removeIngredient(final Ingredient ingredient) {
+        shoppingList.remove(ingredient);
     }
 
     public String getUsername() {

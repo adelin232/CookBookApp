@@ -3,7 +3,7 @@ package service;
 import domain.CookBook;
 import domain.Recipe;
 import domain.User;
-import exceptions.CookBookException;
+import exceptions.RecipeExistsException;
 import exceptions.UserExistsException;
 
 public class CookBookService {
@@ -16,7 +16,7 @@ public class CookBookService {
         return cookBook.getUser(username);
     }
 
-    public static void addRecipe(CookBook cookBook, Recipe recipe) throws CookBookException {
+    public static void addRecipe(CookBook cookBook, Recipe recipe) throws RecipeExistsException {
         cookBook.addRecipe(recipe);
     }
 

@@ -44,7 +44,11 @@ public class Recipe {
     }
 
     public List<Ingredient> getIngredients() {
-        return Collections.unmodifiableList(ingredients);
+        return this.ingredients;
+    }
+
+    public List<Rating> getReceivedRatings() {
+        return this.receivedRatings;
     }
 
     public void addIngredient(Ingredient ingredient) {

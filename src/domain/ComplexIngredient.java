@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.Collections;
 import java.util.List;
 
 public class ComplexIngredient extends AbstractIngredient {
@@ -12,7 +11,11 @@ public class ComplexIngredient extends AbstractIngredient {
         this.subIngredients = subIngredients;
     }
 
+    public void addSubIngredient(Ingredient ingredient) {
+        this.subIngredients.add(ingredient);
+    }
+
     public List<Ingredient> getSubIngredients() {
-        return Collections.unmodifiableList(subIngredients);
+        return this.subIngredients;
     }
 }

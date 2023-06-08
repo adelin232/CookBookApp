@@ -3,14 +3,12 @@ package domain;
 import email.Email;
 import email.EmailException;
 import email.EmailService;
-import exceptions.CookBookException;
 import exceptions.RecipeExistsException;
 import exceptions.UserExistsException;
 import utils.UserRegistrationListener;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -67,7 +65,7 @@ public class CookBook {
     }
 
     public List<User> getUsers() {
-        return Collections.unmodifiableList(users);
+        return this.users;
     }
 
     public User getUser(String username) {
@@ -93,6 +91,6 @@ public class CookBook {
     }
 
     public Set<Recipe> getRecipes() {
-        return Collections.unmodifiableSet(recipes);
+        return this.recipes;
     }
 }
