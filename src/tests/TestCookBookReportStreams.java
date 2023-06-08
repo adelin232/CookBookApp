@@ -1,6 +1,8 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import domain.*;
 import exceptions.CookBookException;
@@ -28,17 +30,17 @@ public class TestCookBookReportStreams {
     public void initialize() throws CookBookException {
         cookBook = new CookBook();
 
-        user1 = new User("alice230", "alice230@gmail.com");
+        user1 = new User("alice230", "alice230@cookbook.ro");
         ingredient1 = new SimpleIngredient(1, "pasta", "wheat pasta");
-        recipe1 = new Recipe("Pasta", "Delicious pasta", "10min", "15min", "Cook pasta and serve");
+        recipe1 = new Recipe(1, "Pasta", "Delicious pasta", "10min", "15min", "Cook pasta and serve");
         recipe1.addIngredient(ingredient1);
         user1.rateRecipe(recipe1, 5, "Great");
         user1.addFavoriteRecipe(recipe1);
         CookBookService.addUser(cookBook, user1);
 
-        user2 = new User("bob231", "bob231@gmail.com");
+        user2 = new User("bob231", "bob231@cookbook.ro");
         ingredient2 = new SimpleIngredient(2, "lettuce", "green lettuce");
-        recipe2 = new Recipe("Salad", "Healthy salad", "5min", "0min", "Mix ingredients and serve");
+        recipe2 = new Recipe(2, "Salad", "Healthy salad", "5min", "0min", "Mix ingredients and serve");
         recipe2.addIngredient(ingredient2);
         user2.rateRecipe(recipe2, 4, "Good");
         user2.addFavoriteRecipe(recipe2);

@@ -35,8 +35,7 @@ public class CookBook {
                     emailService.sendNotificationEmail(
                             new Email()
                                     .setFrom(system)
-                                    .setTo(admin)
-                                    .setCopy(user)
+                                    .setTo(List.of(admin))
                                     .setTitle("User Added Notification")
                                     .setBody("User added: " + user)
                     );

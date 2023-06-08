@@ -18,7 +18,7 @@ public class TestRecipe {
 
     @BeforeEach
     public void setup() {
-        recipe = new Recipe("Pasta", "Delicious Pasta", "10min", "15min", "Boil pasta, add sauce, serve.");
+        recipe = new Recipe(1, "Pasta", "Delicious Pasta", "10min", "15min", "Boil pasta, add sauce, serve.");
         user = new User("john_doe", "john.doe@example.com");
     }
 

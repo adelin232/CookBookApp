@@ -16,8 +16,8 @@ public class TestRating {
 
     @BeforeEach
     public void initialize() {
-        user = new User("john_doe", "john.doe@example.com");
-        recipe = new Recipe("Pizza", "Delicious pizza", "15min", "30min", "Bake the pizza");
+        user = new User("adelin232", "adelin232@cookbook.ro");
+        recipe = new Recipe(1, "Pizza", "Delicious pizza", "15min", "30min", "Bake the pizza");
         rating = new Rating(user, recipe, 5);
     }
 

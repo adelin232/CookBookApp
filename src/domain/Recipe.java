@@ -1,11 +1,11 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Recipe {
 
+    private int id;
     private String name;
     private String description;
     private List<Ingredient> ingredients;
@@ -14,7 +14,8 @@ public class Recipe {
     private String instructions;
     private List<Rating> receivedRatings = new ArrayList<>();
 
-    public Recipe(String name, String description, String preparationTime, String cookingTime, String instructions) {
+    public Recipe(int id, String name, String description, String preparationTime, String cookingTime, String instructions) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.preparationTime = preparationTime;

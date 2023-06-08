@@ -2,12 +2,12 @@ package email;
 
 import domain.User;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Email {
 
-	private User from;
-    private ArrayList<User> to, copy;
+    private User from;
+    private List<User> to;
     private String title, body;
 
     public User getFrom() {
@@ -19,33 +19,12 @@ public class Email {
         return this;
     }
 
-    public ArrayList<User> getTo() {
-        return to;
+    public List<User> getTo() {
+        return this.to;
     }
 
-    public void setTo(ArrayList<User> to) {
+    public Email setTo(List<User> to) {
         this.to = to;
-    }
-
-    public Email setTo(User to) {
-    	ArrayList<User> toList = new ArrayList<>();
-    	toList.add(to);
-        setTo(toList);
-        return this;
-    }
-
-    public ArrayList<User> getCopy() {
-        return copy;
-    }
-
-    public void setCopy(ArrayList<User> copy) {
-        this.copy = copy;
-    }
-
-    public Email setCopy(User copy) {
-    	ArrayList<User> copyList = new ArrayList<>();
-    	copyList.add(copy);
-        setCopy(copyList);
         return this;
     }
 
@@ -66,26 +45,19 @@ public class Email {
         this.body = body;
         return this;
     }
-    
+
     @Override
     public String toString() {
-    	ArrayList<User> users = getTo();
-    	StringBuilder usersTo = new StringBuilder();
-    	for (User user : users) {
+        List<User> users = getTo();
+        StringBuilder usersTo = new StringBuilder();
+        for (User user : users) {
             usersTo.append(user);
-    	}
-    	
-    	users = getCopy();
-    	StringBuilder usersCopy = new StringBuilder();
-    	for (User user : users) {
-            usersCopy.append(user);
-    	}
-    	
-    	return "SEND EMAIL:" + "\n" + 
-    			"From: " + getFrom() +
-    			"To: " + usersTo +
-    			"Copy: " + usersCopy +
-    			"Title: " + getTitle() + "\n" +
-    			"Body: " + getBody() + "\n";
+        }
+
+        return "SEND EMAIL:" + "\n" +
+                "From: " + getFrom() +
+                "To: " + usersTo +
+                "Title: " + getTitle() + "\n" +
+                "Body: " + getBody() + "\n";
     }
 }

@@ -8,31 +8,34 @@ import domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestUser {
 
     private User user;
-    private Recipe recipe1;
-    private Recipe recipe2;
-    private Ingredient ingredient1;
-    private Ingredient ingredient2;
+    private Recipe chocolateCake;
+    private Recipe italianPasta;
+    private Ingredient cocoaPowder;
+    private Ingredient basil;
 
     @BeforeEach
     public void setUp() {
         user = new User("adelin232", "adelin232@cookbook.ro");
 
-        recipe1 = new Recipe("Recipe 1", "Description 1", "0.5h", "2h", "Instructions 1");
-        recipe2 = new Recipe("Recipe 2", "Description 2", "0.25h", "1h", "Instructions 2");
+        chocolateCake = new Recipe(1, "Chocolate Cake", "A delicious and rich chocolate cake", "20 minutes", "35 minutes", "Mix ingredients, bake at 350°F for 35 minutes.");
+        italianPasta = new Recipe(2, "Italian Pasta", "Classic Italian pasta with a rich tomato sauce", "10 minutes", "20 minutes", "Cook pasta, prepare sauce, mix and serve.");
 
-        ingredient1 = new SimpleIngredient(1, "Ingredient 1", "Description 1");
-        ingredient2 = new ComplexIngredient(2, "Ingredient 2", "Description 2", null);
+        cocoaPowder = new SimpleIngredient(1, "Cocoa Powder", "Used in cakes, cookies and desserts");
+        basil = new ComplexIngredient(2, "Basil", "Aromatic herb used in Italian cuisine", null);
 
-        user.addFavoriteRecipe(recipe1);
-        user.addFavoriteRecipe(recipe2);
+        user.addFavoriteRecipe(chocolateCake);
+        user.addFavoriteRecipe(italianPasta);
 
-        user.addIngredient(ingredient1);
-        user.addIngredient(ingredient2);
+        user.addIngredient(cocoaPowder);
+        user.addIngredient(basil);
     }
 
     @Test
@@ -44,31 +47,31 @@ public class TestUser {
 
                 // Test favorite recipes
                 () -> assertEquals(2, user.getFavoriteRecipes().size()),
-                () -> assertTrue(user.getFavoriteRecipes().contains(recipe1)),
-                () -> assertTrue(user.getFavoriteRecipes().contains(recipe2)),
+                () -> assertTrue(user.getFavoriteRecipes().contains(chocolateCake)),
+                () -> assertTrue(user.getFavoriteRecipes().contains(italianPasta)),
 
                 // Test ingredients (assuming getShoppingList returns the ingredients)
                 () -> assertEquals(2, user.getShoppingList().size()),
-                () -> assertTrue(user.getShoppingList().contains(ingredient1)),
-                () -> assertTrue(user.getShoppingList().contains(ingredient2))
+                () -> assertTrue(user.getShoppingList().contains(cocoaPowder)),
+                () -> assertTrue(user.getShoppingList().contains(basil))
         );
 
         // Test removing a favorite recipe
-        user.removeFavoriteRecipe(recipe1);
+        user.removeFavoriteRecipe(chocolateCake);
         assertAll(
                 () -> assertEquals(1, user.getFavoriteRecipes().size()),
-                () -> assertFalse(user.getFavoriteRecipes().contains(recipe1))
+                () -> assertFalse(user.getFavoriteRecipes().contains(chocolateCake))
         );
 
         // Test removing an ingredient
-        user.removeIngredient(ingredient1);
+        user.removeIngredient(cocoaPowder);
         assertAll(
                 () -> assertEquals(1, user.getShoppingList().size()),
-                () -> assertFalse(user.getShoppingList().contains(ingredient1))
+                () -> assertFalse(user.getShoppingList().contains(cocoaPowder))
         );
 
         // Assume user can rate a recipe
-        user.rateRecipe(recipe2, 5, "Excellent!");
-        assertEquals(5, recipe2.getAverageRating());
+        user.rateRecipe(italianPasta, 5, "Absolutely delicious, felt like I was in Italy!");
+        assertEquals(5, italianPasta.getAverageRating());
     }
 }

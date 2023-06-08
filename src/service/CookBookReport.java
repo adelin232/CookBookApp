@@ -1,6 +1,10 @@
 package service;
 
-import domain.*;
+import domain.CookBook;
+import domain.Ingredient;
+import domain.Rating;
+import domain.Recipe;
+import domain.User;
 
 import java.util.Comparator;
 import java.util.List;
@@ -14,6 +18,10 @@ public class CookBookReport {
 
     public int getNumberOfUsers(CookBook cookBook) {
         return cookBook.getUsers().size();
+    }
+
+    public static int getNumberOfRecipes(CookBook cookBook) {
+        return cookBook.getRecipes().size();
     }
 
     public int getNumberOfFavoriteRecipes(CookBook cookBook) {
